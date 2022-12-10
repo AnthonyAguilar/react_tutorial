@@ -1,8 +1,17 @@
 import './App.css';
-import Calculadora from './componentes/Calculadora';
 import logo from './imagenes/logo.png'
+import Boton from './componentes/Boton.js'
 
 function App() {
+
+  const manejarClick = (e) => {
+    console.log('click', e);
+  }
+
+  const reiniciarContador = (e) => {
+    console.log('reiniciar', e);
+  }
+
   return (
     <div className="App">      
         <div className='contenedor-logo'>
@@ -12,7 +21,18 @@ function App() {
               alt='Imagen logo'
           />
         </div>
-        <Calculadora></Calculadora>
+        <div className='Contenedor-principal'>
+          <Boton
+            text='Click'
+            isButtonClick={true}
+            manejarClick={manejarClick}/>
+          <Boton
+            text='Reiniciar'
+            isButtonClick={false}
+            manejarClick={reiniciarContador}/>
+        </div>
+
+       {/*  <Calculadora></Calculadora> */}
     </div>
   );
 }
